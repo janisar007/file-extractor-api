@@ -4,9 +4,11 @@ from PyPDF2 import PdfReader
 import fitz  # PyMuPDF
 import pytesseract
 from PIL import Image
+from flask_cors import CORS
 
 # Initialize the Flask app
 app = Flask(__name__)
+CORS(app)
 
 def extract_text_from_pdf(pdf_path):
     """Extract text from a PDF file."""
