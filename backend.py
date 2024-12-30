@@ -8,7 +8,13 @@ from flask_cors import CORS
 
 # Initialize the Flask app
 app = Flask(__name__)
-CORS(app)
+allowed_origins = [
+    "https://file-ectractor-client.vercel.app",
+    "http://localhost:5174",  # For local testing
+    "http://localhost:5173",
+]
+
+CORS(app, origins=allowed_origins)
 
 def extract_text_from_pdf(pdf_path):
     """Extract text from a PDF file."""
